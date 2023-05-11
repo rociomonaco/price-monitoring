@@ -49,7 +49,7 @@ export function Login() {
             className='w-full p-2 rounded-lg font-medium bg-blue-800 text-white hover:opacity-95 transition-opacity'
             type='submit'
           >
-            Siguiente
+            Continuar
           </button>
         </form>
       </div>
