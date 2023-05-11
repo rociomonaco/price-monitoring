@@ -25,6 +25,12 @@
       ],
       "@/*": [
         "src/*"
+      ],
+      "@icons/*": [
+        "src/components/icons/*"
+      ],
+      "@form/*": [
+        "src/components/form/*"
       ]
     }
   }
