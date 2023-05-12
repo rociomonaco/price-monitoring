@@ -34,6 +34,9 @@
       ],
       "@router/*": [
         "src/router/*"
+      ],
+      "@navigation/*": [
+        "src/components/navigation/*"
       ]
     }
   }
