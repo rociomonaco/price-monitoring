@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function SimpleInput({
+export const SimpleInput = ({
   id,
   label,
   placeholder,
@@ -8,7 +8,7 @@ export function SimpleInput({
   register,
   required = true,
   error
-}) {
+}) => {
   return (
     <div className='flex flex-col gap-y-1.5'>
       <label className='text-xs font-medium text-gray-500' htmlFor={id}>

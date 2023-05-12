@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function InputIcon({
+export const InputIcon = ({
   id,
   label,
   placeholder,
@@ -10,7 +10,7 @@ export function InputIcon({
   error,
   Icon,
   onClick
-}) {
+}) => {
   return (
     <div className='flex flex-col gap-y-1.5'>
       <label className='text-xs font-medium text-gray-500' htmlFor={id}>
