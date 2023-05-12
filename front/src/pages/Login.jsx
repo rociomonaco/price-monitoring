@@ -21,7 +21,7 @@ export function Login() {
   return (
     <div className='h-screen w-full flex justify-center items-center bg-blue-950'>
       <div className='p-3 w-1/3 h-96 flex flex-col justify-evenly bg-slate-50 rounded-md'>
-        <h2 className='text-4xl font-medium text-center'>Iniciar Sesión</h2>
+        <h2 className='text-4xl font-medium text-center'>¡Bienvenido!</h2>
         <form
           className='flex flex-col gap-y-5 mx-11'
           onSubmit={handleSubmit(onSubmit)}
@@ -49,7 +49,7 @@ export function Login() {
             className='w-full p-2 rounded-lg font-medium bg-blue-800 text-white hover:opacity-95 transition-opacity'
             type='submit'
           >
-            Continuar
+            Iniciar Sesión
           </button>
         </form>
       </div>
