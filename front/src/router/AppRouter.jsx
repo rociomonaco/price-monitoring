@@ -22,6 +22,7 @@ export function AppRouter() {
             }
           >
             <Route index element={<h1>DAshboard</h1>} />
+            <Route path='productos' element={<h1>Products</h1>} />
             <Route path='*' element={<Navigate to='/' replace />} />
           </Route>
 
