@@ -12,7 +12,7 @@ const MAIN_NAV_LINKS = [
 
 export const Navbar = () => {
   return (
-    <header className='fixed flex flex-col h-screen max-w-[] gap-y-8 p-4 bg-white shadow-md'>
+    <header className='fixed flex flex-col h-screen max-w-[] gap-y-8 p-4 bg-white shadow-md top-0 left-0'>
       <h1 className='flex flex-col items-center text-4xl font-medium text-blue-600'>
         Price. <span className='text-sm text-gray-900'>Monitoring</span>
       </h1>
