@@ -54,6 +54,5 @@ class AuthController extends Controller
             return response(["message"=>"Credenciales inválidas"], Response::HTTP_UNAUTHORIZED);
         }
 
-        
     }
 }
