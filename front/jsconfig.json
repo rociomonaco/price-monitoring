@@ -1,43 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@context/*": [
-        "src/context/*"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ],
-      "@services/*": [
-        "src/services/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@/*": [
-        "src/*"
-      ],
-      "@icons/*": [
-        "src/components/icons/*"
-      ],
-      "@form/*": [
-        "src/components/form/*"
-      ],
-      "@router/*": [
-        "src/router/*"
-      ],
-      "@navigation/*": [
-        "src/components/navigation/*"
-      ]
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@context/*": ["src/context/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@services/*": ["src/services/*"],
+      "@styles/*": ["src/styles/*"],
+      "@/*": ["src/*"]
     }
   }
 }
