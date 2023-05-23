@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { AuthContext } from '@context/AuthContext'
-import { login } from '@services/auth'
+import { login, logout } from '@services/auth'
 import { useNavigate } from 'react-router-dom'
 
 export const useAuth = () => {
@@ -30,5 +30,24 @@ export const useAuth = () => {
       })
   }
 
-  return { onLogin, isLoading, error }
+  const onLogout = async () => {
+    setIsLoading(true)
+    setError(false)
+    return await logout()
+      .then(() => {
+        localStorage.removeItem('token')
+        setIsAuthenticated(false)
+        setToken(null)
+        navigate('/login')
+      })
+      .catch((error) => {
+        setError(error)
+        throw error
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }
+
+  return { isLoading, error, onLogin, onLogout }
 }
