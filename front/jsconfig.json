@@ -11,7 +11,9 @@
       "@styles/*": ["src/styles/*"],
       "@/*": ["src/*"],
       "@router/*": ["src/router/*"],
-      "@utilities/*": ["src/utilities/*"]
+      "@utilities/*": ["src/utilities/*"],
+      "@modals/*": ["src/components/modals/*"],
+      "@loaders/*": ["src/components/loaders/*"]
     }
   }
 }
