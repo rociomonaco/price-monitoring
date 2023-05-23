@@ -5,7 +5,7 @@ export const Modal = ({
   setClose,
   children,
   hasHeader,
-  title = 'Mensaje'
+  title = 'Información'
 }) => {
   return (
     <div
@@ -16,8 +16,9 @@ export const Modal = ({
       <div
         onClick={(e) => {
           e.stopPropagation()
+          setClose(true)
         }}
-        className={`bg-white rounded-xl shadow-md p-6 transition-all max-w-lg w-2/6  ${
+        className={`bg-white rounded-xl shadow-md p-6 transition-all max-w-lg w-96 ${
           open ? 'scale-100' : 'scale-125 opacity-0'
         }`}
       >
