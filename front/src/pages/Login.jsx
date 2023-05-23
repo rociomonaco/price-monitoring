@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Visualization } from '@components/icons/form/Visualization'
 import { NoVisualization } from '@components/icons/form/NoVisualization'
 import { InputIcon } from '@components/form/input/InputIcon'
 import { SimpleInput } from '@components/form/input/SimpleInput'
+import { useAuth } from '@hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '@context/AuthContext'
 
 export function Login() {
   const {
@@ -12,10 +15,18 @@ export function Login() {
     formState: { errors }
   } = useForm()
   const [showPassword, setShowPassword] = useState(false)
+  const { onLogin, isLoading, error } = useAuth()
+  const { isAuthenticated } = useContext(AuthContext)
+  const navigate = useNavigate()
 
-  const onSubmit = (data) => {
-    console.log(data)
-    console.log(errors)
+  useEffect(() => {
+    isAuthenticated && navigate('/')
+  }, [isAuthenticated])
+
+  const onSubmit = async (data) => {
+    if (!data) return
+
+    await onLogin(data)
   }
 
   return (
@@ -28,11 +39,12 @@ export function Login() {
         >
           <div className='flex flex-col gap-y-2'>
             <SimpleInput
-              id='userName'
-              placeholder='ProtectAsociados'
+              id='email'
+              placeholder='ProtectAsociados@gmail.com'
               register={register}
-              label='Nombre de usuario'
-              error={errors.userName}
+              label='Email'
+              error={errors.email}
+              type='email'
             />
             <InputIcon
               id='password'
@@ -45,9 +57,12 @@ export function Login() {
               onClick={() => setShowPassword(!showPassword)}
             />
           </div>
+          {error && <span className='text-red-600 font-medium'>{error}</span>}
+
           <button
-            className='w-full p-2 rounded-lg font-medium bg-blue-800 text-white hover:opacity-95 transition-opacity'
+            className='w-full p-2 rounded-lg font-medium bg-blue-800 text-white hover:opacity-95 transition-opacity btn'
             type='submit'
+            disabled={isLoading}
           >
             Iniciar Sesión
           </button>

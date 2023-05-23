@@ -6,7 +6,7 @@ import { Navbar } from '@components/navigation/Navbar'
 export function PrivatedRoutes({ children }) {
   const { isAuthenticated } = useContext(AuthContext)
 
-  return true ? (
+  return isAuthenticated ? (
     <div className='relative'>
       <Navbar />
       <div className='ml-64 mt-24'>{children}</div>

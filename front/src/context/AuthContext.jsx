@@ -1,10 +1,9 @@
-import { useAuth } from '@/hooks/useAuth'
 import React, { createContext, useState } from 'react'
 
 export const AuthContext = createContext({})
 
 export const AuthContextProvider = ({ children }) => {
-  const [JWT, setJWT] = useState()
+  const [token, setToken] = useState(localStorage.getItem('token'))
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState({})
 
@@ -15,8 +14,8 @@ export const AuthContextProvider = ({ children }) => {
         setUser,
         isAuthenticated,
         setIsAuthenticated,
-        JWT,
-        setJWT
+        token,
+        setToken
       }}
     >
       {children}
