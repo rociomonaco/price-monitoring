@@ -7,6 +7,7 @@ import { SimpleInput } from '@components/form/input/SimpleInput'
 import { useAuth } from '@hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '@context/AuthContext'
+import { Loading } from '@components/loaders/Loading'
 
 export function Login() {
   const {
@@ -64,7 +65,11 @@ export function Login() {
             type='submit'
             disabled={isLoading}
           >
-            Iniciar Sesión
+            {isLoading ? (
+              <Loading color={{ text: 'text-white', spinner: 'text-white' }} />
+            ) : (
+              'Iniciar Sesión'
+            )}
           </button>
         </form>
       </div>
