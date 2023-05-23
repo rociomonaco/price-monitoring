@@ -8,8 +8,8 @@ export const Loading = ({
 }) => {
   return (
     <div className='w-full flex justify-center items-center'>
-      <Spinner color={color.spinner} size={sizeMatcher(size)} />
-      <p className={`font-medium ${color.text}`}>{text}</p>
+      <Spinner color={color?.spinner} size={sizeMatcher(size)} />
+      <p className={`font-medium ${color?.text}`}>{text}</p>
     </div>
   )
 }
