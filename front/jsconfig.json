@@ -9,7 +9,9 @@
       "@pages/*": ["src/pages/*"],
       "@services/*": ["src/services/*"],
       "@styles/*": ["src/styles/*"],
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@router/*": ["src/router/*"],
+      "@utilities/*": ["src/utilities/*"]
     }
   }
 }
