@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const NoVisualization = ({
   fill = '#374957',
   width = '16',

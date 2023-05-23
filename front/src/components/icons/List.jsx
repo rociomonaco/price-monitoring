@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const List = ({ width = 24, height = 24, fill = '#374957' }) => {
   return (
     <svg

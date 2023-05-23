@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Home = ({ width = 24, height = 24, fill = '#374957' }) => {
   return (
     <svg
