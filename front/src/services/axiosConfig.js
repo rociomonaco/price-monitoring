@@ -3,34 +3,34 @@ import axios from 'axios'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
-export const axiosPublic = axios.create({
-  baseURL: API_BASE_URL
-})
+const createAxiosInstance = ({ url = API_BASE_URL, headers = {} }) => {
+  console.log(url)
+  const instance = axios.create({
+    baseURL: url,
+    headers: {
+      'Content-Type': 'application/json',
+      ...headers
+    }
+  })
 
-export const axiosPrivate = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  withCredentials: true
-})
+  instance.interceptors.response.use(
+    (response) => {
+      return response
+    },
+    (error) => {
+      return Promise.reject(getError(error.code))
+    }
+  )
+  return instance
+}
 
-axiosPrivate.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
-  console.log(token)
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
-})
+const axiosPublic = createAxiosInstance({})
 
-axiosPrivate.interceptors.response.use(
-  (response) => {
-    return response
-  },
-  (error) => {
-    return Promise.reject(getError(error.code))
-  }
-)
+const header = {
+  withCredentials: true,
+  Authorization: `Bearer ${localStorage.getItem('token')}`
+}
 
-export default axiosPrivate
+const axiosPrivate = createAxiosInstance({ header })
+
+export { axiosPublic, axiosPrivate as axios }
