@@ -8,6 +8,7 @@ import {
 import { Login } from '@pages/Login'
 import { PrivatedRoutes } from '@router/PrivatedRoutes'
 import { AuthContextProvider } from '@context/AuthContext'
+import { SessionTimeOutChecker } from '@components/SessionTimeOutChecker'
 
 export function AppRouter() {
   return (
@@ -15,10 +16,12 @@ export function AppRouter() {
       <BrowserRouter>
         <AuthContextProvider>
           <Routes>
+            <Route path='/login' element={<Login />} />
             <Route
               path='/'
               element={
                 <PrivatedRoutes>
+                  <SessionTimeOutChecker />
                   <Outlet />
                 </PrivatedRoutes>
               }
@@ -27,8 +30,6 @@ export function AppRouter() {
               <Route path='productos' element={<h1>Products</h1>} />
               <Route path='*' element={<Navigate to='/' replace />} />
             </Route>
-
-            <Route path='/login' element={<Login />} />
           </Routes>
         </AuthContextProvider>
       </BrowserRouter>
