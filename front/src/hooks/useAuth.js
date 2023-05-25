@@ -9,6 +9,14 @@ export const useAuth = () => {
   const [error, setError] = useState(false)
   const navigate = useNavigate()
 
+  const setAuthData = (token) => {
+    const currentTime = new Date().getTime() //milisegundos
+    localStorage.setItem('token', token)
+    localStorage.setItem('lastLoginTime', currentTime)
+    setIsAuthenticated(true)
+    setToken(token)
+  }
+
   const onLogin = async (data) => {
     setIsLoading(true)
     setError(false)
@@ -16,9 +24,7 @@ export const useAuth = () => {
       .then(({ data }) => {
         const token = data.token_auth
         if (token) {
-          localStorage.setItem('token', token)
-          setIsAuthenticated(true)
-          setToken(token)
+          setAuthData(token)
           navigate('/')
         }
       })
@@ -35,7 +41,7 @@ export const useAuth = () => {
     setError(false)
     return await logout()
       .then(() => {
-        localStorage.removeItem('token')
+        localStorage.clear()
         setIsAuthenticated(false)
         setToken(null)
         navigate('/login')
