@@ -31,8 +31,8 @@ const createAxiosInstance = ({ url = API_BASE_URL }) => {
   return instance
 }
 
-const axiosPublic = createAxiosInstance()
+const axiosPublic = createAxiosInstance({})
 
-const axiosPrivate = createAxiosInstance()
+const axiosPrivate = createAxiosInstance({})
 
 export { axiosPublic, axiosPrivate as axios }
