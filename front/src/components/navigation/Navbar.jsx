@@ -7,7 +7,6 @@ import { useAuth } from '@hooks/useAuth'
 import { Modal } from '@components/modals/Modal'
 import { useState } from 'react'
 import { Loading } from '@components/loaders/Loading'
-import { getError } from '@/utilities/getError'
 
 const MAIN_NAV_LINKS = [
   { id: '1', title: 'Dashboard', to: '/', Icon: Home },
