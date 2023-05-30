@@ -12,8 +12,8 @@
       "@/*": ["src/*"],
       "@router/*": ["src/router/*"],
       "@utilities/*": ["src/utilities/*"],
-      "@modals/*": ["src/components/modals/*"],
-      "@loaders/*": ["src/components/loaders/*"]
+      "@produc/*": ["src/pages/produc/*"],
+      "@product/*": ["src/pages/product/*"]
     }
   }
 }
