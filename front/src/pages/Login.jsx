@@ -8,6 +8,7 @@ import { useAuth } from '@hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '@context/AuthContext'
 import { Loading } from '@components/loaders/Loading'
+import { BtnSubmit } from '@components/form/button/BtnSubmit'
 
 export function Login() {
   const {
@@ -60,17 +61,13 @@ export function Login() {
           </div>
           {error && <span className='text-red-600 font-medium'>{error}</span>}
 
-          <button
-            className='w-full p-2 rounded-lg font-medium bg-blue-800 text-white hover:opacity-95 transition-opacity btn'
-            type='submit'
-            disabled={isLoading}
-          >
+          <BtnSubmit isLoading={isLoading}>
             {isLoading ? (
               <Loading color={{ text: 'text-white', spinner: 'text-white' }} />
             ) : (
               'Iniciar Sesión'
             )}
-          </button>
+          </BtnSubmit>
         </form>
       </div>
     </div>
