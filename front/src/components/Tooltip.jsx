@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export const Tooltip = ({
-  children,
-  title = 'Texto Informativo',
-  position = 'tooltip-top'
-}) => {
+export const Tooltip = ({ children, text, position = 'tooltip-top' }) => {
   const [tooltipPosition, setTooltipPosition] = useState(position)
   const triggerRef = useRef(null)
 
@@ -42,9 +38,9 @@ export const Tooltip = ({
       <div className='group relative inline-block' ref={triggerRef}>
         {children}
         <div
-          className={`w-96 p-2 hidden group-hover:block transition-all absolute bg-white shadow-md z-10 rounded-md ${tooltipPosition}`}
+          className={`max-w-[200px] w-64 p-2 hidden group-hover:block transition-all absolute bg-white shadow-md z-10 rounded-md ${tooltipPosition}`}
         >
-          <p className='text-sm overflow-auto'>{title}</p>
+          <p className='text-xs text-gray-500 overflow-auto'>{text}</p>
           <div className='tooltip-arrow' />
         </div>
       </div>
