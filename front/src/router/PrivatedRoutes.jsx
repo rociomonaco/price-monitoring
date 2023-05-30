@@ -9,7 +9,7 @@ export function PrivatedRoutes({ children }) {
   return isAuthenticated ? (
     <div className='relative'>
       <Navbar />
-      <div className='ml-64 mt-24'>{children}</div>
+      <div className='ml-52 mt-16 mr-14'>{children}</div>
     </div>
   ) : (
     <Navigate to='/login' replace />

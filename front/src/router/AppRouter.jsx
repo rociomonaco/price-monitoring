@@ -9,6 +9,8 @@ import { Login } from '@pages/Login'
 import { PrivatedRoutes } from '@router/PrivatedRoutes'
 import { AuthContextProvider } from '@context/AuthContext'
 import { SessionTimeOutChecker } from '@components/SessionTimeOutChecker'
+import { Products } from '@pages/product/Products'
+import { Product } from '@pages/product/Product'
 
 export function AppRouter() {
   return (
@@ -27,7 +29,10 @@ export function AppRouter() {
               }
             >
               <Route index element={<h1>DAshboard</h1>} />
-              <Route path='productos' element={<h1>Products</h1>} />
+              <Route path='productos' element={<Products />} />
+              <Route path='producto' element={<Product />} />
+              <Route path='producto/:id' element={<Product />} />
+
               <Route path='*' element={<Navigate to='/' replace />} />
             </Route>
           </Routes>
