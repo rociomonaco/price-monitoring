@@ -10,7 +10,7 @@ export const NavLink = ({
   const getStyle = (section, isActive) => {
     switch (section) {
       case 'products':
-        return 'bg-blue-600 text-white'
+        return 'bg-blue-600 text-white hover:opacity-75'
       default:
         return isActive
           ? 'bg-blue-600 text-white'
