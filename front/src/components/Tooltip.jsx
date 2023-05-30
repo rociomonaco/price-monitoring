@@ -21,13 +21,13 @@ export const Tooltip = ({ children, text, position = 'tooltip-top' }) => {
   const changePositionTooltip = (element, window) => {
     switch (true) {
       case element.bottom > window.innerHeight:
-        return 'tooltip-top'
+        return 'tooltip-top transition-none'
       case element.right > window.innerWidth:
-        return 'tooltip-left'
+        return 'tooltip-left transition-none'
       case element.top < 0:
-        return 'tooltip-bottom'
+        return 'tooltip-bottom transition-none'
       case element.left < 0:
-        return 'tooltip-right'
+        return 'tooltip-right transition-none'
       default:
         return false
     }
