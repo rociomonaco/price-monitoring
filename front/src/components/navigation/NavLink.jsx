@@ -7,13 +7,22 @@ export const NavLink = ({
   Icon,
   end = false
 }) => {
+  const getStyle = (section, isActive) => {
+    switch (section) {
+      case 'products':
+        return 'bg-blue-600 text-white'
+      default:
+        return isActive
+          ? 'bg-blue-600 text-white'
+          : 'text-gray-700 hover:bg-blue-100'
+    }
+  }
+
   return (
     <NavLinkRouter to={to} end={end}>
       {({ isActive }) => {
         const fill = isActive ? '#fff' : '#374957'
-        const className = isActive
-          ? 'bg-blue-600 text-white'
-          : 'text-gray-700 hover:bg-blue-100'
+        const className = getStyle(section, isActive)
         return (
           <div
             className={`flex justify-start items-center gap-2 p-2 rounded-md transition ease-in ${className}`}
