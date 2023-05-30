@@ -21,6 +21,8 @@ export const Product = () => {
             register={register}
             label='Nombre'
             error={errors.nombre}
+            showRequired
+            tooltipText='No afecta a la búsqueda en Mercado Libre'
           />
           <SimpleInput
             id='sku'
@@ -28,7 +30,8 @@ export const Product = () => {
             register={register}
             label='SKU'
             error={errors.sku}
-            tooltip='Número de referencia único de producto. Es importante que sea el mismo código que se utiliza para uso interno en la empresa.'
+            tooltipText='Número de referencia único de producto. Es importante que sea el mismo código que se utiliza para uso interno en la empresa.'
+            showRequired
           />
 
           <SimpleInput
@@ -38,6 +41,8 @@ export const Product = () => {
             label='PVP'
             error={errors.pvp}
             type='number'
+            showRequired
+            tooltipText='Precio sugerido de la publicación'
           />
           <Checkbox
             id='outPvp'
@@ -51,6 +56,7 @@ export const Product = () => {
             register={register}
             label='Descripción'
             error={errors.descripcion}
+            tooltipText='Breve descripción, la cual no afectará en la búsqueda de Mercado Libre'
           />
 
           <SimpleInput
@@ -58,18 +64,22 @@ export const Product = () => {
             register={register}
             label='Términos de búsqueda'
             error={errors.terminosBusqueda}
+            showRequired
+            tooltipText='Palabras para la búsqueda de Mercado Libre'
           />
           <SimpleInput
             id='palabrasObligatorias'
             register={register}
             label='Palabras Obligatorias'
             error={errors.palabrasObligatorias}
+            tooltipText='Palabras que sí o sí deben estar en la publicación'
           />
           <SimpleInput
             id='palabrasAExcluir'
             register={register}
             label='Palabras a Excluir'
             error={errors.palabrasAExcluir}
+            tooltipText='Las publicaciones que contengan estas palabras no se incluyen'
           />
         </div>
       </form>
