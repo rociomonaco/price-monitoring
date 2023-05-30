@@ -5,3 +5,54 @@
 .btn[disabled] {
   @apply cursor-not-allowed opacity-75;
 }
+
+.tooltip-top {
+  @apply bottom-6 left-1/2 transform -translate-x-1/2;
+}
+
+.tooltip-bottom {
+  @apply top-6 left-1/2 transform -translate-x-1/2;
+}
+.tooltip-left {
+  @apply right-6 top-1/2 transform -translate-y-1/2;
+}
+.tooltip-right {
+  @apply left-6 top-1/2 transform -translate-y-1/2;
+}
+
+.tooltip-arrow {
+  @apply absolute w-0 h-0;
+}
+.tooltip-top .tooltip-arrow {
+  @apply absolute -bottom-[6px] left-1/2 -translate-x-1/2 w-0 h-0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+
+.tooltip-bottom .tooltip-arrow {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}
+
+.tooltip-left .tooltip-arrow {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid white;
+}
+
+.tooltip-right .tooltip-arrow {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid white;
+}
