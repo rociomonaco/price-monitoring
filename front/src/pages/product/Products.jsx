@@ -1,4 +1,7 @@
+import { Loading } from '@components/loaders/Loading'
 import { NavLink } from '@components/navigation/NavLink'
+import { getAllProducts } from '@services/products'
+import { useCallback, useEffect, useState } from 'react'
 
 export const Products = () => {
   return (
@@ -13,10 +16,48 @@ export const Products = () => {
         </div>
         <NavLink title='Agregar' section='products' to='/producto' end />
       </div>
+      <ProductList />
     </div>
   )
 }
 
 const ProductList = () => {
-  return <div>Listado</div>
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+    getAllProducts()
+      .then((data) => {
+        console.log(data)
+        setData(data?.data?.data)
+      })
+      .catch((error) => {
+        setError(error)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }, [])
+
+  return (
+    <div>
+      {isLoading ? (
+        <Loading />
+      ) : error ? (
+        <h2>Error</h2>
+      ) : (
+        <div>
+          {data.length === 0 ? (
+            <h3>No hay nada para mostrar</h3>
+          ) : (
+            data?.map((item) => {
+              return <div key={item?.id}>{item.name}</div>
+            })
+          )}
+        </div>
+      )}
+    </div>
+  )
 }
