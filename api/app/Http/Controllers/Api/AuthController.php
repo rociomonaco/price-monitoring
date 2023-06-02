@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -48,7 +49,8 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $user = Auth::user();
             $token = $user->createToken('token')->plainTextToken;
-            return response(["token_auth" => $token, "user"=> $user], Response::HTTP_OK);
+            $cookie = cookie('cookie_token', $token, 180);
+            return response(["token_auth" => $token, "user"=> $user], Response::HTTP_OK)->withCookie($cookie);
         }else{
             return response(["message"=>"Credenciales inválidas"], Response::HTTP_UNAUTHORIZED);
         }
@@ -56,7 +58,8 @@ class AuthController extends Controller
 
     public function logout (){
         if(!auth()->user()->tokens()->delete()){
-            return response(Response::HTTP_UNAUTHORIZED);
+            $cookie = Cookie::forget("cookie_token");
+            return response(Response::HTTP_UNAUTHORIZED)->withCookie($cookie);
         }
         return response(Response::HTTP_OK);
     }
