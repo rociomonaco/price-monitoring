@@ -48,24 +48,20 @@ const ProductList = () => {
   return (
     <div>
       {isLoading ? (
-        <Loading />
+        <Loading size={'LARGE'} />
       ) : error ? (
         <h2 className='text-red-600 font-medium'>Error</h2>
+      ) : data.length === 0 ? (
+        <h3>No hay nada para mostrar</h3>
       ) : (
-        <div className='flex justify-center w-full'>
-          {data.length === 0 ? (
-            <h3>No hay nada para mostrar</h3>
-          ) : (
-            <Table
-              data={modifyDataStructure}
-              headers={[
-                { internalName: 'name', value: 'Nombre' },
-                { internalName: 'description', value: 'Producto' },
-                { internalName: 'pvp', value: 'PVP' }
-              ]}
-            />
-          )}
-        </div>
+        <Table
+          data={modifyDataStructure}
+          headers={[
+            { internalName: 'name', value: 'Nombre' },
+            { internalName: 'description', value: 'Producto' },
+            { internalName: 'pvp', value: 'PVP' }
+          ]}
+        />
       )}
     </div>
   )
@@ -96,7 +92,7 @@ const Table = ({ data, headers, options = true }) => {
                     <th
                       key={`${rowIndex}-${headerIndex}`}
                       scope='row'
-                      className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap '
+                      className='px-6 py-4 text-gray-900 whitespace-nowrap font-normal'
                     >
                       {row[header?.internalName]}
                     </th>
